@@ -201,6 +201,12 @@ npx --yes harness-score@1.5.2 .
 
 Resultado esperado: `L0 - Unharnessed`.
 
+Considere este o primeiro scan oficial do tutorial. Se você escanear o template
+antes de executar o prompt, poderá ver um score ligeiramente maior porque ainda
+não existe um manifesto de dependências. Quando `package.json` aparece sem um
+lockfile, o check de instalação reproduzível passa a ser aplicável e fica
+pendente. A etapa 2 corrige essa lacuna com `package-lock.json`.
+
 Observe:
 
 - A aplicação funciona.
