@@ -10,6 +10,23 @@ Este tutorial não entrega a aplicação ou o harness prontos. Cada camada será
 criada na sua máquina para que você observe o que mudou, por que o score subiu
 e quais limitações ainda permanecem.
 
+## Links úteis
+
+- [Harness Score no npm](https://www.npmjs.com/package/harness-score) - consulte
+  a versão publicada e instale ou execute o pacote com `npx`.
+- [Código-fonte no GitHub](https://github.com/paladini/harness-score) - explore o
+  scanner, acompanhe mudanças e reporte problemas.
+- [Site oficial](https://paladini.io/harness-score/) - conheça o modelo de
+  maturidade e os principais recursos do Harness Score.
+- [Documentação em português](https://paladini.io/harness-score/pt-BR/) - acesse
+  os guias de instalação, uso, interpretação e integração contínua.
+- [Referência de todos os checks](https://paladini.io/harness-score/pt-BR/guide/measure-and-improve.html#the-check-catalog)
+  - consulte critérios, pontuação, evidências e recomendações de cada check.
+- [Harness Maturity Showcase](https://paladini.io/harness-maturity-showcase/) -
+  compare a maturidade de harness de projetos de código aberto.
+- [Código-fonte do Showcase](https://github.com/paladini/harness-maturity-showcase)
+  - veja os dados, a geração do site e como contribuir com um projeto.
+
 ## O que você vai aprender
 
 Ao concluir o tutorial, você terá praticado:
