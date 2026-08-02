@@ -1,5 +1,10 @@
 # Tutorial prático do Harness Score
 
+[![Usar este template para criar um repositório](https://img.shields.io/badge/Usar_este_template-Criar_reposit%C3%B3rio-2ea44f?style=for-the-badge&logo=github)](https://github.com/paladini/harness-score-tutorial/generate)
+
+Use o botão acima para criar seu próprio repositório e executar o tutorial sem
+alterar este guia.
+
 Aprenda harness engineering evoluindo um repositório de `L0` até `L4`.
 Você executará prompts em um agente de código, inspecionará cada mudança e
 usará o [Harness Score](https://github.com/paladini/harness-score) para medir
