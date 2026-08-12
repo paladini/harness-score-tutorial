@@ -11,14 +11,14 @@ permissions:
   contents: read
 
 jobs:
-  verify-v1-5-3:
+  verify-v1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Harness Score v1.5.3
+      - name: Run Harness Score v1 alias
         id: score
-        uses: paladini/harness-score@v1.5.3
+        uses: paladini/harness-score@v1
         with:
           min-level: '0'
 
@@ -32,4 +32,4 @@ jobs:
           test -n "$LEVEL"
           test -n "$LEVEL_NAME"
           test -n "$PERCENT"
-          printf 'verified v1.5.3: L%s %s (%s%%)\n' "$LEVEL" "$LEVEL_NAME" "$PERCENT"
+          printf 'verified v1 alias: L%s %s (%s%%)\n' "$LEVEL" "$LEVEL_NAME" "$PERCENT"
