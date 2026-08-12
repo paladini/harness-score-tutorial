@@ -1,0 +1,32 @@
+name: Verify Harness Score release
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-v1-5-3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Harness Score v1.5.3
+        id: score
+        uses: paladini/harness-score@v1.5.3
+        with:
+          min-level: '0'
+
+      - name: Verify authoritative outputs
+        shell: bash
+        env:
+          LEVEL: ${{ steps.score.outputs.level }}
+          LEVEL_NAME: ${{ steps.score.outputs.level-name }}
+          PERCENT: ${{ steps.score.outputs.percent }}
+        run: |
+          test -n "$LEVEL"
+          test -n "$LEVEL_NAME"
+          test -n "$PERCENT"
+          printf 'verified v1.5.3: L%s %s (%s%%)\n' "$LEVEL" "$LEVEL_NAME" "$PERCENT"
