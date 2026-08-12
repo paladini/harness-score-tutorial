@@ -1,6 +1,9 @@
 name: Verify Harness Score release
 
 on:
+  push:
+    branches:
+      - codex/verify-harness-score-v1-5-3
   pull_request:
   workflow_dispatch:
 
