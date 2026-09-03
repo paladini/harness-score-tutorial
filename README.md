@@ -81,6 +81,10 @@ Os números são referências. A saída de uma LLM pode variar. Se o agente cria
 artefatos além do escopo pedido, o score também poderá variar. O principal é
 observar a mudança de nível e a dimensão que melhorou.
 
+Como o tutorial usa o comando sem versão fixa, novas versões podem adicionar
+checks ou alterar o total de pontos. Nesse caso, trate os níveis e as
+tendências como a referência principal, não os números exatos desta tabela.
+
 ## Pré-requisitos
 
 Instale:
@@ -97,12 +101,12 @@ node --version
 npm --version
 git --version
 gh --version
-npx --yes harness-score@1.5.2 --version
+npx --yes harness-score --version
 ```
 
-O tutorial fixa `harness-score@1.5.2` para que todos os scans usem o mesmo
-modelo de maturidade. Executar o último comando antes de começar também aquece
-o cache do `npx`.
+O tutorial usa `npx harness-score` sem fixar uma versão, acompanhando a versão
+publicada pelo npm. Executar o último comando antes de começar também aquece o
+cache do `npx`.
 
 ## Crie sua própria cópia
 
@@ -218,7 +222,7 @@ Confira se o agente criou somente:
 ### Calcule o primeiro score
 
 ```powershell
-npx --yes harness-score@1.5.2 .
+npx --yes harness-score .
 ```
 
 Resultado esperado: `L0 - Unharnessed`.
@@ -289,7 +293,7 @@ os títulos do AGENTS.md.
 
 ```powershell
 git diff -- AGENTS.md
-npx --yes harness-score@1.5.2 .
+npx --yes harness-score .
 ```
 
 Resultado esperado: `L1 - Documented`.
@@ -344,7 +348,7 @@ repetições foram removidas.
 ```powershell
 git diff --stat
 git diff -- AGENTS.md
-npx --yes harness-score@1.5.2 .
+npx --yes harness-score .
 ```
 
 O score deve permanecer praticamente igual. O harness melhorou porque o
@@ -410,7 +414,7 @@ Não faça commit.
 
 ```powershell
 git diff --stat
-npx --yes harness-score@1.5.2 .
+npx --yes harness-score .
 ```
 
 Resultado esperado: `L2 - Guided`.
@@ -477,7 +481,7 @@ resultado do lint e typecheck. Não faça commit.
 ```powershell
 npm run check
 git diff --stat
-npx --yes harness-score@1.5.2 .
+npx --yes harness-score .
 ```
 
 Resultado esperado: `L3 - Sensing`.
@@ -550,7 +554,7 @@ e informe as respostas JSON. Não faça commit.
 ```powershell
 npm run check
 git diff --stat
-npx --yes harness-score@1.5.2 .
+npx --yes harness-score .
 ```
 
 Resultado esperado: `L4 - Self-correcting`.
@@ -595,7 +599,8 @@ Requisitos:
 - Use permissão somente de leitura de contents.
 - Use actions/checkout@v7.
 - Use paladini/harness-score@v1.
-- Fixe o input version do scanner em 1.5.2.
+- Não configure o input `version`, para que o comando seja executado sem
+  versão fixa.
 - Configure min-level como 4.
 - Desabilite a geração de badge neste exercício.
 - Mantenha este workflow separado do workflow de CI do produto para deixar
@@ -603,13 +608,13 @@ Requisitos:
 
 Não altere código da aplicação, CI existente, hooks ou qualquer outro arquivo.
 Valide o YAML e execute o gate local equivalente com
-`npx --yes harness-score@1.5.2 . --min-level 4`. Não faça commit.
+`npx --yes harness-score . --min-level 4`. Não faça commit.
 ```
 
 ### Verifique o gate
 
 ```powershell
-npx --yes harness-score@1.5.2 . --min-level 4
+npx --yes harness-score . --min-level 4
 git diff -- .github/workflows/harness-score.yml
 ```
 
@@ -639,13 +644,13 @@ Antes de executar uma etapa, salve o relatório fora do repositório:
 ```powershell
 $reports = Join-Path (Split-Path -Parent $PWD) "meeting-cost-demo-reports"
 New-Item -ItemType Directory -Force $reports
-npx --yes harness-score@1.5.2 . --quiet --json > "$reports/before.json"
+npx --yes harness-score . --quiet --json > "$reports/before.json"
 ```
 
 Depois de executar o prompt:
 
 ```powershell
-npx --yes harness-score@1.5.2 . --diff "$reports/before.json"
+npx --yes harness-score . --diff "$reports/before.json"
 ```
 
 O relatório mostra:
@@ -704,7 +709,7 @@ Confirme Node.js e npm, aqueça o cache com o comando de versão e execute o sca
 com um caminho absoluto para o diretório atual:
 
 ```powershell
-npx --yes harness-score@1.5.2 "$PWD"
+npx --yes harness-score "$PWD"
 ```
 
 ### Os hooks não são acionados automaticamente
