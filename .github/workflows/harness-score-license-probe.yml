@@ -1,0 +1,11 @@
+name: Harness Score license probe
+on:
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Root entrypoint pinned by full SHA
+        uses: paladini/harness-score@b8c3941ba49edcf69f973e26c1940dae487f7c7a
+      - name: Legacy subdirectory entrypoint pinned by full SHA
+        uses: paladini/harness-score/action@b8c3941ba49edcf69f973e26c1940dae487f7c7a
